@@ -30,3 +30,9 @@ w
 G.idea/sonarlint/issuestore/2/c/2cabb939da04d3de3a200bf2b575690e1a16316d,1\0\10f2119b18de4c2d93011c2acd27301df22c2983
 w
 G.idea/sonarlint/issuestore/8/6/863e0292fd7e9b3e74dafd6cc01f73ba76346482,3\0\30f9777ea696a18aa49d3e9967e93a4276065227
+y
+Isrc/main/java/ua/javarush/fedorets/cryptoanalyzer/file/FileProcessor.java,9\7\9746f29ac164221f690a1d6bfb3d95b4c5a6d86c
+y
+Isrc/main/java/ua/javarush/fedorets/cryptoanalyzer/file/FileValidator.java,2\2\22a10cd0865626dc7ddf89535102fb237668ac12
+u
+Esrc/main/java/ua/javarush/fedorets/cryptoanalyzer/file/FileCheck.java,e\0\e0f52052d44ebef52b9316a0060ab9e891c2a580

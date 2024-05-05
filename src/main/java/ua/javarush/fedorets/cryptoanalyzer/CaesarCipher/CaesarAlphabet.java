@@ -2,6 +2,16 @@ package ua.javarush.fedorets.cryptoanalyzer.CaesarCipher;
 
 public class CaesarAlphabet {
 
+    /*
+       private static final char[] ALPHABET_RU_GROSS = {
+                'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З',
+                'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р',
+                'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ',
+                'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я',
+        };
+
+    */
+
         private static final char[] ALPHABET_RU = {
                 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з',
                 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р',
@@ -39,4 +49,15 @@ public class CaesarAlphabet {
             }
         }
 
+// Динамический сдвиг алфавита
+
+    public static void shiftAlphabet(int shift) {
+        char[] shiftedAlphabet = new char[CaeserAlphabet.length];
+        for (int i = 0; i < CaeserAlphabet.length; i++) {
+            int newIndex = (i + shift) % CaeserAlphabet.length;
+            shiftedAlphabet[newIndex] = CaeserAlphabet[i];
+        }
+        System.arraycopy(shiftedAlphabet, 0, CaeserAlphabet, 0, CaeserAlphabet.length);
     }
+
+}

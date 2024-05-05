@@ -3,8 +3,9 @@ package ua.javarush.fedorets.cryptoanalyzer.CaesarCipher;
 
 public class CaesarCipher {
 
-    private static final int SHIFT = 3;
-    public static String encrypt(String text) {
+    public static String encrypt(String text, int shift) {
+
+        CaesarAlphabet.shiftAlphabet(shift); // Применяем динамический сдвиг алфавита
 
         StringBuilder encryptedText = new StringBuilder();
 
@@ -16,7 +17,7 @@ public class CaesarCipher {
 
             if (index != -1) {
 
-                int newIndex = (index + SHIFT) % CaesarAlphabet.CaeserAlphabet.length;
+                int newIndex = (index + shift) % CaesarAlphabet.CaeserAlphabet.length;
                 encryptedText.append(CaesarAlphabet.CaeserAlphabet[newIndex]);
             } else {
                 encryptedText.append(symbol);
@@ -26,7 +27,9 @@ public class CaesarCipher {
     }
 
 
-    public static String decrypt(String encryptedText) {
+    public static String decrypt(String encryptedText, int shift) {
+
+        CaesarAlphabet.shiftAlphabet(shift);
 
         StringBuilder decryptedText = new StringBuilder();
 
@@ -36,7 +39,7 @@ public class CaesarCipher {
 
             if (index != -1) {
 
-                int newIndex = (index - SHIFT + CaesarAlphabet.CaeserAlphabet.length) % CaesarAlphabet.CaeserAlphabet.length;
+                int newIndex = (index - shift + CaesarAlphabet.CaeserAlphabet.length) % CaesarAlphabet.CaeserAlphabet.length;
                 decryptedText.append(CaesarAlphabet.CaeserAlphabet[newIndex]);
             } else {
 
@@ -47,6 +50,7 @@ public class CaesarCipher {
         return decryptedText.toString();
     }
 
+// Метод для динамического сдвига алфавита Цезаря на определенное количество позиций.
     private static int indexOf(char symbol) {
 
         for (int i = 0; i < CaesarAlphabet.CaeserAlphabet.length; i++) {
