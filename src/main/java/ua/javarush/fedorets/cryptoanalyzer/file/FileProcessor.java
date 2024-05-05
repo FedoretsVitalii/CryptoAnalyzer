@@ -11,9 +11,10 @@ public class FileProcessor {
         StringBuilder content = new StringBuilder();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                content.append(line).append("\n");
+            char[] buffer = new char[BUFFER_SIZE];
+            int bytesRead;
+            while ((bytesRead = reader.read(buffer)) != -1) {
+                content.append(buffer, 0, bytesRead);
             }
         }
 
