@@ -1,65 +1,37 @@
 package ua.javarush.fedorets.cryptoanalyzer.CaesarCipher;
 
+import java.util.List;
 
+/*
+В данном классе создаю логику шифрования методом Цезаря при использовании ранее созданного алфавита.
+ */
 public class CaesarCipher {
-
-    public static String encrypt(String text, int shift) {
-
-        CaesarAlphabet.shiftAlphabet(shift); // Применяем динамический сдвиг алфавита
-
+    private final List<Character> alphabet;
+    public CaesarCipher(List<Character> alphabet) {
+        this.alphabet = alphabet;
+    }
+    public String encrypt(String text, int key) {
         StringBuilder encryptedText = new StringBuilder();
-
-        text = text.toLowerCase();
-
-        for (char symbol : text.toCharArray()) {
-
-            int index = indexOf(symbol);
-
+        for (int i = 0; i < text.length(); i++) {
+            char currentChar = Character.toLowerCase(text.charAt(i));
+            int index = alphabet.indexOf(currentChar);
             if (index != -1) {
-
-                int newIndex = (index + shift) % CaesarAlphabet.CaeserAlphabet.length;
-                encryptedText.append(CaesarAlphabet.CaeserAlphabet[newIndex]);
+                int encryptedIndex = (index + key) % alphabet.size();
+                char encryptedChar = alphabet.get(encryptedIndex);
+                encryptedText.append(encryptedChar);
             } else {
-                encryptedText.append(symbol);
+                encryptedText.append(currentChar);
             }
         }
         return encryptedText.toString();
     }
 
-
-    public static String decrypt(String encryptedText, int shift) {
-
-        CaesarAlphabet.shiftAlphabet(shift);
-
-        StringBuilder decryptedText = new StringBuilder();
-
-        for (char symbol : encryptedText.toCharArray()) {
-
-            int index = indexOf(symbol);
-
-            if (index != -1) {
-
-                int newIndex = (index - shift + CaesarAlphabet.CaeserAlphabet.length) % CaesarAlphabet.CaeserAlphabet.length;
-                decryptedText.append(CaesarAlphabet.CaeserAlphabet[newIndex]);
-            } else {
-
-                decryptedText.append(symbol);
-            }
-        }
-
-        return decryptedText.toString();
+    public String decrypt(String text, int key) {
+        return encrypt(text, -key);
     }
 
-// Метод для динамического сдвига алфавита Цезаря на определенное количество позиций.
-    private static int indexOf(char symbol) {
-
-        for (int i = 0; i < CaesarAlphabet.CaeserAlphabet.length; i++) {
-
-            if (CaesarAlphabet.CaeserAlphabet[i] == symbol) {
-                return i;
-            }
-        }
-        return -1;
+    public int getAlphabetSize() {
+        return alphabet.size(); // Возвращает размер алфавита
     }
 }
 

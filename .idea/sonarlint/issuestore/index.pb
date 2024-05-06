@@ -32,7 +32,13 @@ w
 G.idea/sonarlint/issuestore/8/6/863e0292fd7e9b3e74dafd6cc01f73ba76346482,3\0\30f9777ea696a18aa49d3e9967e93a4276065227
 y
 Isrc/main/java/ua/javarush/fedorets/cryptoanalyzer/file/FileProcessor.java,9\7\9746f29ac164221f690a1d6bfb3d95b4c5a6d86c
-y
-Isrc/main/java/ua/javarush/fedorets/cryptoanalyzer/file/FileValidator.java,2\2\22a10cd0865626dc7ddf89535102fb237668ac12
 u
 Esrc/main/java/ua/javarush/fedorets/cryptoanalyzer/file/FileCheck.java,e\0\e0f52052d44ebef52b9316a0060ab9e891c2a580
+y
+Isrc/main/java/ua/javarush/fedorets/cryptoanalyzer/CaesarCipher/Coder.java,b\1\b141e709b6a66149c324b0177adc3c1875149abc
+w
+Gsrc/main/java/ua/javarush/fedorets/cryptoanalyzer/view/ConsoleView.java,c\2\c23c0b8924decb9a884d58b1e9ad0aadb7398c91
+‰
+Ysrc/main/java/ua/javarush/fedorets/cryptoanalyzer/exceptions/CryptoAnalyzerException.java,a\7\a7f08040f66668be2e724d708cd94692597121fc
+…
+Usrc/main/java/ua/javarush/fedorets/cryptoanalyzer/CaesarCipher/BruteForceDecoder.java,8\f\8fa1f7b3a88d11feaed2b439b23184a8e3c59aa0

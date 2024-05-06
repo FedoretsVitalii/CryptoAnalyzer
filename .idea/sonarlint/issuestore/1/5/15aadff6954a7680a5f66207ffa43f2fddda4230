@@ -1,7 +1,5 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(•ð‰•ûÿÿÿÿ8ºè×ýó1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(•ð‰•ûÿÿÿÿ8µú±Íô1
 W
-java:S1118":Add a private constructor to hide the implicit public one.(ÈÐ—¡8Àè×ýó1
-]	java:S125"<This block of commented-out lines of code should be removed.(Ò÷¢çÿÿÿÿÿ8ÏÁØýó1
-K
-java:S2386$")Make member "CaeserAlphabet" "protected".(·ÂëÊÿÿÿÿÿ8Èè×ýó1
+java:S1118
+":Add a private constructor to hide the implicit public one.(ÈÐ—¡8§ÁÉÓô1

@@ -1,63 +1,41 @@
 package ua.javarush.fedorets.cryptoanalyzer.CaesarCipher;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/*
+    В данном классе создаю отдельный алфавит для дальнейшего использования в шифре.
+ */
 public class CaesarAlphabet {
+    private static final List<Character> ALL_SYMBOLS = new ArrayList<>();
 
-    /*
-       private static final char[] ALPHABET_RU_GROSS = {
-                'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З',
-                'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р',
-                'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ',
-                'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я',
-        };
-
-    */
-
-        private static final char[] ALPHABET_RU = {
+// Блок статической инициализации
+    static {
+        addAllSymbols(Arrays.asList(
                 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з',
                 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р',
                 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ',
-                'ъ', 'ы', 'ь', 'э', 'ю', 'я',
-        };
-
-        private static final char[] Numbers = {
-                '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
-        };
-
-        private static final char[] Punctuation = {
+                'ъ', 'ы', 'ь', 'э', 'ю', 'я'
+        ));
+        addAllSymbols(Arrays.asList(
+                'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+                'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+                'u', 'v', 'w', 'x', 'y', 'z'
+        ));
+        addAllSymbols(Arrays.asList(
+                '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'
+        ));
+        addAllSymbols(Arrays.asList(
                 ' ', '.', ',', '!', '?', ':', ';', '*', '<', '>',
                 '@', '#', '№', '$', '^', '&', '(', ')', '_', '-',
-                '+', '=', '\'', '|', '{', '}',
-        };
-
-        public static final char[] CaeserAlphabet;
-
-        static {
-            int length = ALPHABET_RU.length + Numbers.length + Punctuation.length;
-            CaeserAlphabet = new char[length];
-            int index = 0;
-
-            for (char ch : ALPHABET_RU) {
-                CaeserAlphabet[index++] = ch;
-            }
-
-            for (char ch : Numbers) {
-                CaeserAlphabet[index++] = ch;
-            }
-
-            for (char ch : Punctuation) {
-                CaeserAlphabet[index++] = ch;
-            }
-        }
-
-// Динамический сдвиг алфавита
-
-    public static void shiftAlphabet(int shift) {
-        char[] shiftedAlphabet = new char[CaeserAlphabet.length];
-        for (int i = 0; i < CaeserAlphabet.length; i++) {
-            int newIndex = (i + shift) % CaeserAlphabet.length;
-            shiftedAlphabet[newIndex] = CaeserAlphabet[i];
-        }
-        System.arraycopy(shiftedAlphabet, 0, CaeserAlphabet, 0, CaeserAlphabet.length);
+                '+', '=', '\'', '|', '{', '}'
+        ));
     }
-
+    public static List<Character> getAllSymbols() {
+        return new ArrayList<>(ALL_SYMBOLS);
+    }
+    private static void addAllSymbols(List<Character> symbols) {
+        ALL_SYMBOLS.addAll(symbols);
+    }
 }
